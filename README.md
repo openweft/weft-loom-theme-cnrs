@@ -2,7 +2,42 @@
 
 `cnrs` brand theme for weft-loom compile tooling.
 
-**Signature** : CNRS — institutional blue #1D50A2 + cyan #00AFCA accent.
+**Signature** : `#0660FF` — the electric Marianne-leaning blue used
+across the current CNRS web identity. The earlier draft used a
+muted `#1D50A2` which doesn't match the institution's actual brand
+saturation.
+
+## Source
+
+Colour frequency-counted across the CNRS theme stylesheet
+(`www.cnrs.fr/sites/default/files/css/css_V-i0aKYHu__c4i3nBxPe3-VsyQv_IPSIoWkCY6Q4KL0.css`,
+2026-06 audit) :
+
+| Token              | Hex       | Occurrences in CSS |
+| ------------------ | --------- | ------------------ |
+| Primary blue       | `#0660FF` | 196                |
+| Body text          | `#151723` | 78                 |
+| Muted text         | `#535460` | 73                 |
+| Soft paper surface | `#F1F2FA` | 32                 |
+| Secondary blue     | `#0094F0` | 10                 |
+
+## Typography
+
+Brand-prescribed Google Fonts found in the site stylesheet :
+
+- **Chivo** — headlines + emphasis (the dominant brand display
+  face).
+- **Libre Franklin** — body.
+- **Rubik** — UI / labels.
+
+All three are free on Google Fonts and embedded by the slide
+renderer automatically.
+
+## Wordmark
+
+The institution wording is "Centre national de la recherche
+scientifique (CNRS)" in long form ; CNRS in short form. The CSS
+prints the short form in the upper-right of every slide.
 
 ## Usage (Marp slides)
 
@@ -15,29 +50,18 @@ theme: cnrs
 # Slide title
 ```
 
-The theme is published as an OCI artifact at
-`ghcr.io/openweft/weft-loom-theme-cnrs:<tag>` and consumed by
-the tool images via a multi-stage `COPY --from=` :
+## Distribution
+
+Published as an OCI artifact at
+`ghcr.io/openweft/weft-loom-theme-cnrs:<tag>`. Tool images consume
+it via multi-stage `COPY --from=` :
 
 ```dockerfile
-COPY --from=ghcr.io/openweft/weft-loom-theme-cnrsatest /marp/ /opt/marp/themes/
+COPY --from=ghcr.io/openweft/weft-loom-theme-cnrs:latest /marp/cnrs.css /opt/marp/themes/cnrs.css
 ```
-
-## Layout
-
-| Path                  | Contents                                  |
-| --------------------- | ----------------------------------------- |
-| `marp/cnrs.css`   | Marp slide stylesheet                     |
-| `pandoc/cnrs.tex` | pandoc XeLaTeX template (V0.2)            |
-| `latex/cnrs.sty`  | raw LaTeX style package (V0.2)            |
-
-## Brand integrity
-
-The CSS commits to the institution's published visual identity
-guide. Re-brand drift → open a PR with the citation. Logos +
-wordmarks remain the property of their owners and are referenced
-only by colour + typography, never bundled as image assets.
 
 ## License
 
-BSD-3-Clause (openweft).
+BSD-3-Clause (openweft). The CNRS name, logo, and trademark remain
+the property of the CNRS ; this repo references the institution
+only by colour and typography, never bundled as image assets.
