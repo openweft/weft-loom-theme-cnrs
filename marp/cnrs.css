@@ -110,12 +110,43 @@ blockquote {
 
 ul li::marker { color: var(--cnrs-blue); }
 
+/* Lead / title slide cover. The theme does NOT bundle the CNRS
+ * logotype file (institutional trademark — the user may have
+ * permission to use it in their own deck but the theme repo cannot
+ * redistribute under BSD-3-Clause). An `--cnrs-logo` CSS variable
+ * provides an inject point :
+ *
+ *   <!-- _class: lead -->
+ *   <!-- _style: "--cnrs-logo: url(/path/to/cnrs-logo.svg)" -->
+ *
+ * Without that override, a typographic CNRS wordmark in Chivo
+ * fills the cover.
+ */
 section.lead {
   background: var(--cnrs-blue);
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  --cnrs-logo: none;
 }
-section.lead::before { color: white; }
+section.lead::before {
+  content: 'CNRS';
+  position: static;
+  font-family: "Chivo", "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 2.2em;
+  letter-spacing: 0.12em;
+  color: white;
+  background: var(--cnrs-logo) center / contain no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.6em;
+  min-height: 1.2em;
+}
+section.lead[style*="--cnrs-logo"]::before { font-size: 0; min-height: 110px; }
 section.lead::after { background: white; height: 6px; }
 section.lead h1 { color: white; }
 section.lead h2 { color: rgba(255, 255, 255, 0.85); }

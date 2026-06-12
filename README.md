@@ -65,3 +65,23 @@ COPY --from=ghcr.io/openweft/weft-loom-theme-cnrs:latest /marp/cnrs.css /opt/mar
 BSD-3-Clause (openweft). The CNRS name, logo, and trademark remain
 the property of the CNRS ; this repo references the institution
 only by colour and typography, never bundled as image assets.
+
+## Cover slide / logo
+
+The theme renders a brand-typography wordmark on `section.lead`
+slides ; no institutional logo file is bundled (trademarks remain
+the institution's property and aren't redistributable under
+BSD-3-Clause).
+
+If you have the right to use the official logotype in your deck,
+supply your own image via the `--cnrs-logo` CSS variable :
+
+```markdown
+<!-- _class: lead -->
+<!-- _style: "--cnrs-logo: url(/path/to/your/logo.svg)" -->
+
+# Title here
+## Subtitle here
+```
+
+Official logo source : https://www.cnrs.fr — Presse / CNRS Images.
