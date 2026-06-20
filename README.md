@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/openweft/brand/main/social/weft-loom-theme-cnrs.png" alt="weft-loom-theme-cnrs" width="720"></p>
+
 # weft-loom-theme-cnrs
 
 `cnrs` brand theme for weft-loom compile tooling.
